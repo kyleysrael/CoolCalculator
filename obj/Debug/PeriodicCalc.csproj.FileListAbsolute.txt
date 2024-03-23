@@ -1,0 +1,10 @@
+D:\source\PeriodicCalc\bin\Debug\PeriodicCalc.exe.config
+D:\source\PeriodicCalc\bin\Debug\PeriodicCalc.exe
+D:\source\PeriodicCalc\bin\Debug\PeriodicCalc.pdb
+D:\source\PeriodicCalc\obj\Debug\PeriodicCalc.csproj.AssemblyReference.cache
+D:\source\PeriodicCalc\obj\Debug\PeriodicCalc.Properties.Resources.resources
+D:\source\PeriodicCalc\obj\Debug\PeriodicCalc.csproj.GenerateResource.cache
+D:\source\PeriodicCalc\obj\Debug\PeriodicCalc.csproj.CoreCompileInputs.cache
+D:\source\PeriodicCalc\obj\Debug\PeriodicCalc.exe
+D:\source\PeriodicCalc\obj\Debug\PeriodicCalc.pdb
+D:\source\PeriodicCalc\obj\Debug\PeriodicCalc.Form1.resources
