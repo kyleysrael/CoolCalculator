@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PeriodicCalc
@@ -15,8 +8,8 @@ namespace PeriodicCalc
         public Form1()
         {
             InitializeComponent();
-            this.MinimizeBox = false; 
-            this.MaximizeBox = false; 
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -129,7 +122,7 @@ namespace PeriodicCalc
 
         }
 
-        
+
         private void errorHandler_Click(object sender, EventArgs e)
         {
 
@@ -220,11 +213,13 @@ namespace PeriodicCalc
                 // Validation for Laboratory activities
                 validator.ValidateScoreAndItems(ref l1Score, l1Items, 50, 100, "Lab 1");
                 validator.ValidateScoreAndItems(ref l2Score, l2Items, 50, 100, "Lab 2");
-                validator.ValidateScoreAndItems( ref l3Score, l3Items, 50, 100, "Lab 3");
+                validator.ValidateScoreAndItems(ref l3Score, l3Items, 50, 100, "Lab 3");
 
                 // Check if exam score and items are not empty
                 if (!string.IsNullOrEmpty(examScore.Text) && !string.IsNullOrEmpty(examItems.Text))
                 {
+
+                    PeriodicGradeCalculator periodicGradeCalculator = new PeriodicGradeCalculator();
                     // Retrieve exam score and items
                     double examScoreValue = double.Parse(examScore.Text);
                     double examItemsValue = double.Parse(examItems.Text);
@@ -233,19 +228,19 @@ namespace PeriodicCalc
                     validator.ValidateExam(examScoreValue, examItemsValue);
 
                     // Perform calculations
-                    double grade = Calculation(q1Score, q1Items, q2Score, q2Items, l1Score, l1Items, l2Score, l2Items, l3Score, l3Items, c1Score, c1Items, c2Score, c2Items, c3Score, c3Items, examScoreValue, examItemsValue);
+                    double grade = periodicGradeCalculator.Calculation(q1Score, q1Items, q2Score, q2Items, l1Score, l1Items, l2Score, l2Items, l3Score, l3Items, c1Score, c1Items, c2Score, c2Items, c3Score, c3Items, examScoreValue, examItemsValue);
 
                     // Display the computed grade
                     computedPeriodicGrade.Text = grade.ToString();
 
                     // Determine equivalent grade
-                    string equivalent = DetermineEquivalentGrade(grade);
+                    string equivalent = periodicGradeCalculator.DetermineEquivalentGrade(grade);
 
                     // Display equivalent grade
                     equivalentGrade.Text = equivalent;
 
                     // Determine remarks
-                    string remarks = DetermineRemarks(grade);
+                    string remarks = periodicGradeCalculator.DetermineRemarks(grade);
 
                     // Display remarks
                     remarksLabel.Text = remarks;
@@ -262,55 +257,57 @@ namespace PeriodicCalc
             }
         }
 
-
-        private double Calculation(double q1, double q1a, double q2, double q2a, double l1, double l1a, double l2, double l2a, double l3, double l3a, double c1, double c1a, double c2, double c2a, double c3, double c3a, double x, double xa)
+        public class PeriodicGradeCalculator
         {
-            double qw1 = q1 / q1a * 50 + 50;
-            double qw2 = q2 / q2a * 50 + 50;
-            double qc = Math.Round(((qw1 + qw2) / 2) * 0.1, 3);
+            public double Calculation(double q1, double q1a, double q2, double q2a, double l1, double l1a, double l2, double l2a, double l3, double l3a, double c1, double c1a, double c2, double c2a, double c3, double c3a, double x, double xa)
+            {
+                double qw1 = q1 / q1a * 50 + 50;
+                double qw2 = q2 / q2a * 50 + 50;
+                double qc = Math.Round(((qw1 + qw2) / 2) * 0.1, 3);
 
-            double lw = ((l1 + l2 + l3) / (l1a + l2a + l3a)) * 50 + 50;
-            double lc = Math.Round(lw * 0.5, 3);
+                double lw = ((l1 + l2 + l3) / (l1a + l2a + l3a)) * 50 + 50;
+                double lc = Math.Round(lw * 0.5, 3);
 
-            double cw = ((c1 + c2 + c3) / (c1a + c2a + c3a)) * 50 + 50;
-            double cc = Math.Round(cw * 0.1, 3);
+                double cw = ((c1 + c2 + c3) / (c1a + c2a + c3a)) * 50 + 50;
+                double cc = Math.Round(cw * 0.1, 3);
 
-            double xw = x / xa * 50 + 50;
-            double xc = Math.Round(xw * 0.3, 3);
+                double xw = x / xa * 50 + 50;
+                double xc = Math.Round(xw * 0.3, 3);
 
-            return Math.Round(qc + lc + cc + xc, 3);
-        }
+                return Math.Round(qc + lc + cc + xc, 3);
+            }
 
-        private string DetermineEquivalentGrade(double grade)
-        {
-            if (grade >= 97.5)
-                return "1.0";
-            else if (grade >= 94.5)
-                return "1.25";
-            else if (grade >= 91.5)
-                return "1.5";
-            else if (grade >= 88.5)
-                return "1.75";
-            else if (grade >= 85.5)
-                return "2.0";
-            else if (grade >= 82.5)
-                return "2.25";
-            else if (grade >= 79.5)
-                return "2.5";
-            else if (grade >= 76.5)
-                return "2.75";
-            else if (grade >= 74.5)
-                return "3.0";
-            else
-                return "5.0";
-        }
+            public string DetermineEquivalentGrade(double grade)
+            {
+                if (grade >= 97.5)
+                    return "1.0";
+                else if (grade >= 94.5)
+                    return "1.25";
+                else if (grade >= 91.5)
+                    return "1.5";
+                else if (grade >= 88.5)
+                    return "1.75";
+                else if (grade >= 85.5)
+                    return "2.0";
+                else if (grade >= 82.5)
+                    return "2.25";
+                else if (grade >= 79.5)
+                    return "2.5";
+                else if (grade >= 76.5)
+                    return "2.75";
+                else if (grade >= 74.5)
+                    return "3.0";
+                else
+                    return "5.0";
+            }
 
-        private string DetermineRemarks(double grade)
-        {
-            if (grade >= 74.5)
-                return "Passed";
-            else
-                return "Failed";
+            public string DetermineRemarks(double grade)
+            {
+                if (grade >= 74.5)
+                    return "Passed";
+                else
+                    return "Failed";
+            }
         }
 
         public class ScoreValidator
@@ -351,4 +348,6 @@ namespace PeriodicCalc
         }
     }
 }
+
+
 
