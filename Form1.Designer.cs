@@ -289,7 +289,6 @@
             this.class3Items.TabIndex = 22;
             this.class3Items.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.class3Items.TextChanged += new System.EventHandler(this.class3Items_TextChanged);
-            this.class3Items.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // class3Score
             // 
@@ -300,7 +299,6 @@
             this.class3Score.TabIndex = 21;
             this.class3Score.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.class3Score.TextChanged += new System.EventHandler(this.class3Score_TextChanged);
-            this.class3Score.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // class2Items
             // 
@@ -311,7 +309,6 @@
             this.class2Items.TabIndex = 20;
             this.class2Items.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.class2Items.TextChanged += new System.EventHandler(this.class2Items_TextChanged);
-            this.class2Items.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // lab3Items
             // 
@@ -322,7 +319,6 @@
             this.lab3Items.TabIndex = 19;
             this.lab3Items.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.lab3Items.TextChanged += new System.EventHandler(this.lab3Items_TextChanged);
-            this.lab3Items.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // lab3Score
             // 
@@ -333,7 +329,6 @@
             this.lab3Score.TabIndex = 18;
             this.lab3Score.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.lab3Score.TextChanged += new System.EventHandler(this.lab3Score_TextChanged);
-            this.lab3Score.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // lab2Items
             // 
@@ -344,7 +339,6 @@
             this.lab2Items.TabIndex = 17;
             this.lab2Items.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.lab2Items.TextChanged += new System.EventHandler(this.lab2Items_TextChanged);
-            this.lab2Items.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // class2Score
             // 
@@ -355,7 +349,6 @@
             this.class2Score.TabIndex = 16;
             this.class2Score.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.class2Score.TextChanged += new System.EventHandler(this.class2Score_TextChanged);
-            this.class2Score.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // class1Items
             // 
@@ -366,7 +359,6 @@
             this.class1Items.TabIndex = 15;
             this.class1Items.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.class1Items.TextChanged += new System.EventHandler(this.class1Items_TextChanged);
-            this.class1Items.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // lab1Items
             // 
@@ -377,7 +369,6 @@
             this.lab1Items.TabIndex = 14;
             this.lab1Items.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.lab1Items.TextChanged += new System.EventHandler(this.lab1Items_TextChanged);
-            this.lab1Items.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // examItems
             // 
@@ -388,7 +379,6 @@
             this.examItems.TabIndex = 13;
             this.examItems.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.examItems.TextChanged += new System.EventHandler(this.examItems_TextChanged);
-            this.examItems.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // lab2Score
             // 
@@ -399,7 +389,6 @@
             this.lab2Score.TabIndex = 12;
             this.lab2Score.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.lab2Score.TextChanged += new System.EventHandler(this.lab2Score_TextChanged);
-            this.lab2Score.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // quiz2Items
             // 
@@ -410,7 +399,6 @@
             this.quiz2Items.TabIndex = 11;
             this.quiz2Items.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.quiz2Items.TextChanged += new System.EventHandler(this.quiz2Items_TextChanged);
-            this.quiz2Items.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // quiz2Score
             // 
@@ -421,7 +409,6 @@
             this.quiz2Score.TabIndex = 10;
             this.quiz2Score.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.quiz2Score.TextChanged += new System.EventHandler(this.quiz2Score_TextChanged);
-            this.quiz2Score.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // quiz1Items
             // 
@@ -432,7 +419,6 @@
             this.quiz1Items.TabIndex = 9;
             this.quiz1Items.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.quiz1Items.TextChanged += new System.EventHandler(this.quiz1Items_TextChanged);
-            this.quiz1Items.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // examScore
             // 
@@ -443,7 +429,6 @@
             this.examScore.TabIndex = 8;
             this.examScore.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.examScore.TextChanged += new System.EventHandler(this.examScore_TextChanged);
-            this.examScore.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // class1Score
             // 
@@ -454,7 +439,6 @@
             this.class1Score.TabIndex = 7;
             this.class1Score.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.class1Score.TextChanged += new System.EventHandler(this.class1Score_TextChanged);
-            this.class1Score.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // lab1Score
             // 
@@ -465,7 +449,6 @@
             this.lab1Score.TabIndex = 6;
             this.lab1Score.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.lab1Score.TextChanged += new System.EventHandler(this.lab1Score_TextChanged);
-            this.lab1Score.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // quiz1Score
             // 
@@ -476,7 +459,6 @@
             this.quiz1Score.TabIndex = 5;
             this.quiz1Score.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.quiz1Score.TextChanged += new System.EventHandler(this.quiz1Items_TextChanged);
-            this.quiz1Score.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateIntegerKeyPress);
             // 
             // label6
             // 

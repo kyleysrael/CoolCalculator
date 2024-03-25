@@ -209,18 +209,18 @@ namespace PeriodicCalc
                 ScoreValidator validator = new ScoreValidator();
 
                 // Validation for quiz
-                validator.ValidateScoreAndItems(q1Score, q1Items, 5, 50, "Quiz 1");
-                validator.ValidateScoreAndItems(q2Score, q2Items, 5, 50, "Quiz 2");
+                validator.ValidateScoreAndItems(ref q1Score, q1Items, 5, 50, "Quiz 1");
+                validator.ValidateScoreAndItems(ref q2Score, q2Items, 5, 50, "Quiz 2");
 
                 // Validation for Classroom activities
-                validator.ValidateScoreAndItems(c1Score, c1Items, 30, 100, "Classroom Act 1");
-                validator.ValidateScoreAndItems(c2Score, c2Items, 30, 100, "Classroom Act 2");
-                validator.ValidateScoreAndItems(c3Score, c3Items, 30, 100, "Classroom Act 3");
+                validator.ValidateScoreAndItems(ref c1Score, c1Items, 30, 100, "Classroom Act 1");
+                validator.ValidateScoreAndItems(ref c2Score, c2Items, 30, 100, "Classroom Act 2");
+                validator.ValidateScoreAndItems(ref c3Score, c3Items, 30, 100, "Classroom Act 3");
 
                 // Validation for Laboratory activities
-                validator.ValidateScoreAndItems(l1Score, l1Items, 50, 100, "Lab 1");
-                validator.ValidateScoreAndItems(l2Score, l2Items, 50, 100, "Lab 2");
-                validator.ValidateScoreAndItems(l3Score, l3Items, 50, 100, "Lab 3");
+                validator.ValidateScoreAndItems(ref l1Score, l1Items, 50, 100, "Lab 1");
+                validator.ValidateScoreAndItems(ref l2Score, l2Items, 50, 100, "Lab 2");
+                validator.ValidateScoreAndItems( ref l3Score, l3Items, 50, 100, "Lab 3");
 
                 // Check if exam score and items are not empty
                 if (!string.IsNullOrEmpty(examScore.Text) && !string.IsNullOrEmpty(examItems.Text))
@@ -315,7 +315,19 @@ namespace PeriodicCalc
 
         public class ScoreValidator
         {
-            public void ValidateScoreAndItems(double score, double items, double minItems, double maxItems, string fieldName)
+            public double ParseDoubleWithDefaultZero(string input)
+            {
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    return 0;
+                }
+                else
+                {
+                    return double.Parse(input);
+                }
+            }
+
+            public void ValidateScoreAndItems(ref double score, double items, double minItems, double maxItems, string fieldName)
             {
                 if (score < 0)
                     throw new ArgumentException($"{fieldName} score cannot be less than zero.");
@@ -325,6 +337,8 @@ namespace PeriodicCalc
 
                 if (score > items)
                     throw new ArgumentException($"Score cannot exceed total items in {fieldName}.");
+
+                score = ParseDoubleWithDefaultZero(score.ToString());
             }
 
             public void ValidateExam(double score, double items)
@@ -332,18 +346,9 @@ namespace PeriodicCalc
                 if (items != 100)
                     throw new ArgumentOutOfRangeException("Total items for Exam must always be 100.");
 
-                ValidateScoreAndItems(score, items, 100, 100, "Exam");
+                ValidateScoreAndItems(ref score, items, 100, 100, "Exam");
             }
         }
-
-        private void ValidateIntegerKeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true; 
-            }
-        }
-
     }
 }
 
